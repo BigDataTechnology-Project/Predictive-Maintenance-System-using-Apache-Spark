@@ -82,18 +82,8 @@ def feature_engineering(df):
     return df
 
 def select_columns(df):
-    columns_to_keep = [
-        "equipment_id", "timestamp", "temperature", "vibration", "pressure",
-        "rotational_speed", "power_output", "noise_level", "voltage", "current",
-        "oil_viscosity", "criticality", "maintenance_type", "cost",
-        "maintenance_result", "production_rate", "operating_hours",
-        "downtime_hours", "product_type", "raw_material_quality",
-        "ambient_temperature", "ambient_humidity", "days_since_maintenance",
-        "equipment_age_days", "days_since_overhaul", "temp_pct_of_max",
-        "pressure_pct_of_max", "speed_pct_of_max", "cumulative_maintenance_cost",
-        "cumulative_operating_hours", "estimated_rul", "parts_replaced"
-    ]
-    return df.select(columns_to_keep)
+    return df.select("*")
+
 
 def label_encoding(df):
     categorical_cols = ["criticality", "maintenance_type", "maintenance_result",
@@ -101,10 +91,13 @@ def label_encoding(df):
 
     for col in categorical_cols:
         indexer = StringIndexer(inputCol=col, outputCol=f"{col}_encoded", handleInvalid="keep")
-        df = indexer.fit(df).transform(df)
+        model = indexer.fit(df)
+        df = model.transform(df)
 
-    # Drop original categorical columns
-    df = df.drop(*categorical_cols)
+        # Print the mapping for this column
+        print(f"\nEncoding mapping for {col}:")
+        for idx, category in enumerate(model.labels):
+            print(f"{idx}: {category}")
 
     return df
 
@@ -113,7 +106,8 @@ def main():
 
     # Load your integrated dataset
     schema = define_schema()
-    df = spark.read.csv("Data Processing & Analysis/DEA & Feature Engineering/cleaned_final_dataset.csv", header=True, schema=schema)
+    df = spark.read.csv("Data Processing & Analysis/DEA & Feature Engineering/cleaned_final_dataset.csv", header=True,
+                        schema=schema)
 
     # Perform feature engineering
     df_engineered = feature_engineering(df)
@@ -127,11 +121,12 @@ def main():
     # Order the DataFrame by equipment_id
     df_ordered = df_encoded.orderBy("equipment_id", "timestamp")
 
-    # Show the resulting dataframe schema
+    # Print schema after all transformations
+    print("\nFinal schema:")
     df_ordered.printSchema()
 
-    # Optional: Save the resulting dataframe
-    df_ordered.coalesce(1).write.mode("overwrite").option("header", "true").csv("Data Processing & Analysis/DEA & Feature Engineering/engineered_dataset_ordered")
+    # Save the resulting dataframe
+    df_ordered.coalesce(1).write.mode("overwrite").option("header", "true").csv("Data Processing & Analysis/DEA & Feature Engineering/dataset_final_update")
 
     spark.stop()
 
