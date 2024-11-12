@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c21cc8cc-54db-4286-94fc-02bc526b0b0d" name="Changes" comment="'test'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alert System Trainning/Alert System Creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alert System Trainning/Alert System Creation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alert System Trainning/XGB.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alert System Trainning/XGB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data Processing &amp; Analysis/DEA &amp; Feature Engineering/EDA.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data Processing &amp; Analysis/DEA &amp; Feature Engineering/EDA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data Processing &amp; Analysis/DEA &amp; Feature Engineering/FE &amp; Label Encoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data Processing &amp; Analysis/DEA &amp; Feature Engineering/FE &amp; Label Encoding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data Processing &amp; Analysis/Quality Assessment &amp; Data Validation/equipment_specs_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data Processing &amp; Analysis/Quality Assessment &amp; Data Validation/equipment_specs_validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data Validation and Quality Assessment Steps" beforeDir="false" afterPath="$PROJECT_DIR$/Data Validation and Quality Assessment Steps" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Trang" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,20 +54,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Dycee",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/KhanhChang/PycharmProjects/Predictive-Maintenance-System-using-Apache-Spark&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\KhanhChang\PycharmProjects\Predictive-Maintenance-System-using-Apache-Spark" />
       <recent name="C:\Users\KhanhChang\PycharmProjects\Predictive-Maintenance-System-using-Apache-Spark\Data Processing &amp; Analysis" />
     </key>
   </component>
@@ -88,6 +97,35 @@
       <workItem from="1728469842056" duration="277000" />
       <workItem from="1728470127746" duration="214000" />
       <workItem from="1728470382123" duration="446000" />
+      <workItem from="1728484807790" duration="2588000" />
+      <workItem from="1728524028114" duration="36000" />
+      <workItem from="1728534312141" duration="668000" />
+      <workItem from="1728543101731" duration="37000" />
+      <workItem from="1728570226404" duration="12136000" />
+      <workItem from="1728582587123" duration="9000" />
+      <workItem from="1728612669062" duration="1716000" />
+      <workItem from="1728651952568" duration="8269000" />
+      <workItem from="1728660351202" duration="5926000" />
+      <workItem from="1728666420818" duration="283000" />
+      <workItem from="1728666754222" duration="23000" />
+      <workItem from="1728696450190" duration="32000" />
+      <workItem from="1728698471427" duration="2381000" />
+      <workItem from="1728701382642" duration="49000" />
+      <workItem from="1728701459756" duration="879000" />
+      <workItem from="1728702486567" duration="1261000" />
+      <workItem from="1729092112105" duration="3859000" />
+      <workItem from="1729133551516" duration="28000" />
+      <workItem from="1729133626349" duration="1655000" />
+      <workItem from="1729153672468" duration="4237000" />
+      <workItem from="1729216632994" duration="4540000" />
+      <workItem from="1729256252471" duration="95000" />
+      <workItem from="1729436090632" duration="10115000" />
+      <workItem from="1729512731451" duration="8407000" />
+      <workItem from="1729521496966" duration="647000" />
+      <workItem from="1729864821801" duration="11000" />
+      <workItem from="1731401707362" duration="4410000" />
+      <workItem from="1731406961018" duration="2716000" />
+      <workItem from="1731413394882" duration="293000" />
     </task>
     <task id="LOCAL-00001" summary="'Synthetic Data Generator'">
       <option name="closed" value="true" />
@@ -126,5 +164,18 @@
     <MESSAGE value="'Synthetic Data Generator'" />
     <MESSAGE value="'test'" />
     <option name="LAST_COMMIT_MESSAGE" value="'test'" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Data Processing &amp; Analysis/DEA &amp; Feature Engineering/EDA.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/equipment_specs_validation_py$test.coverage" NAME="test Coverage Results" MODIFIED="1728655796814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Data Processing &amp; Analysis/DEA &amp; Feature Engineering" />
   </component>
 </project>

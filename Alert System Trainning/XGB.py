@@ -18,7 +18,7 @@ spark = SparkSession.builder \
        .getOrCreate()
 
 # Load the data with alerts
-data = spark.read.option("header", "true").csv("data_with_alert.csv")
+data = spark.read.option("header", "true").csv("Predictive-Maintenance-System-using-Apache-Spark/data_with_alerts/data_with_alert.csv")
 
 # Define feature columns and their types
 feature_cols = [

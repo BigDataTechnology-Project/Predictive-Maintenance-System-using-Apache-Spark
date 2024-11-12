@@ -1,3 +1,4 @@
+from pyspark.sql import functions as F
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, count, when, isnan, isnull, min, max, mean, stddev, percentile_approx
 from pyspark.sql.types import NumericType, StringType
@@ -108,41 +109,6 @@ def calculate_categorical_freq(df):
         print(f"\n{column}:")
         freq_dist.show(10, truncate=False)
 
-
-def plot_histograms(df, numeric_columns, output_dir):
-    """Plot histograms for numerical columns and save as a single image."""
-    # Sample the data to avoid memory issues
-    sample_df = df.sample(fraction=0.1, seed=42)  # Adjust the fraction as needed
-    pdf = sample_df.select(numeric_columns).toPandas()
-
-    num_cols = len(numeric_columns)
-    nrows = math.ceil(math.sqrt(num_cols))
-    ncols = math.ceil(num_cols / nrows)
-
-    fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=(ncols * 5, nrows * 4))
-    axes = axes.flatten()
-
-    for i, col in enumerate(numeric_columns):
-        if i < len(axes):
-            pdf[col].hist(ax=axes[i], bins=50)
-            axes[i].set_title(col)
-            axes[i].set_ylabel('Frequency')
-
-    for j in range(i + 1, len(axes)):
-        fig.delaxes(axes[j])
-
-    plt.tight_layout()
-
-    # Create the output directory if it doesn't exist
-    os.makedirs(output_dir, exist_ok=True)
-
-    # Save the plot
-    plot_path = os.path.join(output_dir, 'histograms_new.png')
-    plt.savefig(plot_path)
-    plt.close()
-    print(f"Histograms saved to {plot_path}")
-
-
 def identify_outliers(df, numeric_columns):
     """Identify and print outliers in numerical columns."""
     print("\nOutlier counts (using 3 standard deviations from mean as threshold):")
@@ -210,11 +176,23 @@ def main():
         csv_file_path = 'Datasets/integrated_data.csv'
         integrated_df = load_csv_data(spark, csv_file_path)
 
+        # Print số lượng bản ghi ban đầu
+        total_records_before = integrated_df.count()
+        print(f"\nTotal records before filtering: {total_records_before}")
+
+        # Remove invalid records (where timestamp < installation_date)
+        df_valid = integrated_df.filter(F.col("timestamp") >= F.col("installation_date"))
+
+        # Print số lượng bản ghi sau khi lọc
+        total_records_after = df_valid.count()
+        print(f"Total records after filtering: {total_records_after}")
+        print(f"Removed {total_records_before - total_records_after} records")
+
         # Perform initial data overview
-        initial_data_overview(integrated_df)
+        initial_data_overview(df_valid)
 
         # Check missing values and remove them
-        df_cleaned = check_missing_values(integrated_df)
+        df_cleaned = check_missing_values(df_valid)
 
         # Identify duplicates
         identify_duplicates(df_cleaned)
@@ -233,9 +211,6 @@ def main():
 
         # Set output directory
         output_dir = 'Data Processing & Analysis/DEA & Feature Engineering'
-
-        # Plot histograms and save
-        plot_histograms(df_cleaned, numeric_columns, output_dir)
 
         # Identify outliers
         identify_outliers(df_cleaned, numeric_columns)

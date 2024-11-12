@@ -243,7 +243,7 @@ def process_data(data):
 if __name__ == "__main__":
     # Load your data into a Spark DataFrame
     schema = define_schema()
-    data = spark.read.option("header", "true").csv("Data Processing & Analysis/DEA & Feature Engineering/dataset_final_update/final_data_update.csv", schema=schema)
+    data = spark.read.option("header", "true").csv("Data Processing & Analysis/DEA & Feature Engineering/dataset_final/dataset_final.csv", schema=schema)
 
     # Process the data
     result_data, alert_percentages,  detailed_alert_percentages = process_data(data)
