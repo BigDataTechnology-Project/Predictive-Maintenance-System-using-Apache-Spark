@@ -38,6 +38,7 @@ for column in feature_cols:
         data = data.withColumn(column, col(column).cast(IntegerType()))
     else:
         data = data.withColumn(column, col(column).cast(DoubleType()))
+
 # Create feature vector
 assembler = VectorAssembler(inputCols=feature_cols, outputCol="features")
 data = assembler.transform(data)
