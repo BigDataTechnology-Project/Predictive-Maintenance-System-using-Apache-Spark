@@ -101,12 +101,69 @@ def label_encoding(df):
 
     return df
 
+
+def validate_equipment_age(df):
+    # Check for negative equipment age
+    negative_age = df.filter(F.col("equipment_age_days") < 0)
+
+    # Get count and basic stats
+    neg_count = negative_age.count()
+
+    print(f"Number of records with negative equipment age: {neg_count}")
+
+    if neg_count > 0:
+        print("\nSample of records with negative age:")
+        negative_age.select(
+            "equipment_id",
+            "timestamp",
+            "installation_date",
+            "equipment_age_days"
+        ).orderBy("equipment_age_days").show(5)
+
+        # Get statistics for negative ages
+        negative_age.select(
+            F.min("equipment_age_days").alias("min_negative_age"),
+            F.max("equipment_age_days").alias("max_negative_age"),
+            F.avg("equipment_age_days").alias("avg_negative_age")
+        ).show()
+
+    return negative_age
+
+
+def analyze_invalid_timestamps(df):
+    # Đếm số lượng bản ghi có timestamp < installation_date
+    invalid_records = df.filter(F.col("timestamp") < F.col("installation_date"))
+    total_records = df.count()
+    invalid_count = invalid_records.count()
+
+    print(f"Total records: {total_records}")
+    print(f"Records with timestamp before installation_date: {invalid_count}")
+    print(f"Percentage: {(invalid_count / total_records * 100):.2f}%")
+
+    # Hiển thị phân bố theo equipment_id
+    print("\nDistribution by equipment_id:")
+    invalid_records.groupBy("equipment_id") \
+        .count() \
+        .orderBy("equipment_id") \
+        .show(5)
+
+    # Hiển thị mẫu chi tiết
+    print("\nSample records with invalid timestamps:")
+    invalid_records.select(
+        "equipment_id",
+        "timestamp",
+        "installation_date",
+        "equipment_age_days"
+    ).orderBy("equipment_id", "timestamp") \
+        .show(5)
+
+
 def main():
     spark = create_spark_session()
 
     # Load your integrated dataset
     schema = define_schema()
-    df = spark.read.csv("Data Processing & Analysis/DEA & Feature Engineering/cleaned_final_dataset.csv", header=True,
+    df = spark.read.csv("Data Processing & Analysis/DEA & Feature Engineering/cleaned_dataset.csv/cleaned_dataset.csv", header=True,
                         schema=schema)
 
     # Perform feature engineering
@@ -126,7 +183,7 @@ def main():
     df_ordered.printSchema()
 
     # Save the resulting dataframe
-    df_ordered.coalesce(1).write.mode("overwrite").option("header", "true").csv("Data Processing & Analysis/DEA & Feature Engineering/dataset_final_update")
+    df_ordered.coalesce(1).write.mode("overwrite").option("header", "true").csv("Data Processing & Analysis/DEA & Feature Engineering/dataset_final")
 
     spark.stop()
 
