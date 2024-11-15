@@ -4,15 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c21cc8cc-54db-4286-94fc-02bc526b0b0d" name="Changes" comment="'test'">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Alert System Trainning/Alert System Creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alert System Trainning/Alert System Creation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Alert System Trainning/XGB.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alert System Trainning/XGB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data Processing &amp; Analysis/DEA &amp; Feature Engineering/EDA.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data Processing &amp; Analysis/DEA &amp; Feature Engineering/EDA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data Processing &amp; Analysis/DEA &amp; Feature Engineering/FE &amp; Label Encoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data Processing &amp; Analysis/DEA &amp; Feature Engineering/FE &amp; Label Encoding.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data Processing &amp; Analysis/Quality Assessment &amp; Data Validation/equipment_specs_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data Processing &amp; Analysis/Quality Assessment &amp; Data Validation/equipment_specs_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data Validation and Quality Assessment Steps" beforeDir="false" afterPath="$PROJECT_DIR$/Data Validation and Quality Assessment Steps" afterDir="false" />
-    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
