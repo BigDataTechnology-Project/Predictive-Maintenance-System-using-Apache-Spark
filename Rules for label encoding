@@ -1,0 +1,32 @@
+Encoding mapping for criticality:
+0: Medium
+1: Low
+2: High
+
+Encoding mapping for maintenance_type:
+0: Inspection
+1: Repair
+2: Routine
+3: Replacement
+
+Encoding mapping for maintenance_result:
+0: Successful
+1: Partial
+2: Failed
+
+Encoding mapping for product_type:
+0: TypeC
+1: TypeA
+2: TypeB
+
+Encoding mapping for raw_material_quality:
+0: High
+1: Medium
+2: Low
+
+Encoding mapping for parts_replaced:
+0: None
+1: Bearings
+2: Motor
+3: Seals
+4: Filters

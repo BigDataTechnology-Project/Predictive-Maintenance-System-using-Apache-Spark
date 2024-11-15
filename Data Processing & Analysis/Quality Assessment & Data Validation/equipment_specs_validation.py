@@ -15,7 +15,7 @@ def create_spark_session():
             .getOrCreate())
 
 
-def validate_equipment_specs(equipment_df, sensor_df, maintenance_df, operational_df):
+def validate_equipment_specs(equipment_df):
     # 1. Verify installation_date
     future_installations = equipment_df.filter(col("installation_date") > current_date()).count()
     print(f"1. Number of future installation dates: {future_installations}")
@@ -83,11 +83,8 @@ def main():
     try:
         # Load datasets
         equipment_df = spark.read.csv("Datasets/equipment_specs.csv", header=True, inferSchema=True)
-        sensor_df = spark.read.csv("Datasets/sensor_data.csv", header=True, inferSchema=True)
-        maintenance_df = spark.read.csv("Datasets/maintenance_logs.csv", header=True, inferSchema=True)
-        operational_df = spark.read.csv("Datasets/operational_data.csv", header=True, inferSchema=True)
 
-        validate_equipment_specs(equipment_df, sensor_df, maintenance_df, operational_df)
+        validate_equipment_specs(equipment_df)
 
     finally:
         spark.stop()
